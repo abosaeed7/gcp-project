@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-python
+  labels:
+    app: python-application
+    
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-application
+ 
+  template:
+    metadata:
+      name: python-redis
+      labels:
+        app: python-application
+   
+    spec:
+      containers:
+       - name: python-redis
+         image: gcr.io/abdelrahman-saeed/app-project:latest
+         ports:
+          - containerPort: 8000
+         env:
+          - name: ENVIRONMENT
+            value: "DEV"
+          - name: HOST
+            value: "localhost"
+          - name: PORT
+            value: "8000"
+          - name: REDIS_HOST
+            value: "redis-master"
+          - name: REDIS_PORT
+            value: "6379"
+          - name: REDIS_DB
+            value: "0"

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+  labels:
+    name: redis-DB
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redisDB
+
+  template:
+    metadata:
+      name: redis
+      labels:
+        app: redisDB
+
+
+    spec:
+      containers:
+        - name: redis
+          image: gcr.io/abdelrahman-saeed/redis-app-project:latest
+          ports:
+            - containerPort: 6379
