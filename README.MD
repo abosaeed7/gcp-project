@@ -15,8 +15,9 @@ Docker file contain python application .
 
 # After provisioning
 * ssh into the private vm then connect to the kde.
-* deploy redis 
-* expose redis
-* deploy python application
-* expose application to public internet with a public HTTP load balancer
+* deploy redis .
+* expose redis.
+* deploy python application.
+* expose application to public internet with a public HTTP load balancer.
+* access application with loadblancer public ip.
 
