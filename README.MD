@@ -13,6 +13,8 @@ provisioning full gke infrastructure with terraform
 Docker file contain python application .
 ## Note: Environment variables must be declared in the deplyment yaml file.
 
+# Images 
+all images stored in gcr.
 # After provisioning
 * ssh into the private vm then connect to the kde.
 * deploy redis .
