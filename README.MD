@@ -16,7 +16,7 @@ Docker file contain python application .
 # Images 
 all images stored in gcr.
 # After provisioning
-* ssh into the private vm then connect to the kde.
+* ssh into the private vm then connect to the gke.
 * deploy redis .
 * expose redis.
 * deploy python application.
