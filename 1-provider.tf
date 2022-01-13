@@ -1,4 +1,4 @@
 provider "google" {
-  project     = "abdelrahman-saeed"
+  project     = var.project_name
   region      = var.regoin
 }

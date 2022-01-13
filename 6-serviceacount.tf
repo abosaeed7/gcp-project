@@ -1,31 +1,22 @@
-# resource "google_service_account" "sa_vm" {
-#   account_id   = "service-acount-for-vm-project"
-#   display_name = "service-acount-for-vm-project"
-# }
+resource "google_service_account" "sa_vm" {
+  account_id   = "service-acount-for-vm-project"
+  display_name = "service-acount-for-vm-project"
+}
 
 
 
-# resource "google_project_iam_binding" "sa_vm" {
-#   project = "abdelrahman-saeed"
-#   role    = "roles/container.admin"
-#   depends_on = [
-#     google_service_account.sa_vm
-#   ]
-#   members = [
-#     "serviceAccount:${google_service_account.sa_vm.email}"
-#   ]
-# }
+resource "google_project_iam_binding" "sa_vm" {
+  project = "abdelrahman-saeed"
+  role    = "roles/container.admin"
+  depends_on = [
+    google_service_account.sa_vm
+  ]
+  members = [
+    "serviceAccount:${google_service_account.sa_vm.email}"
+  ]
+}
 
-# resource "google_project_iam_binding" "sa_vm1" {
-#   project = "abdelrahman-saeed"
-#   role    = "roles/storage.objectAdmin"
-#   depends_on = [
-#     google_service_account.sa_vm
-#   ]
-#   members = [
-#     "serviceAccount:${google_service_account.sa_vm.email}"
-#   ]
-# }
+
 
 
 
@@ -49,7 +40,7 @@ resource "google_project_iam_binding" "sa_gke" {
 
 resource "google_project_iam_binding" "sa_gke1" {
   project = "abdelrahman-saeed"
-  role    = "roles/storage.objectAdmin"
+  role    = "roles/visualinspection.serviceAgent"
   depends_on = [
     google_service_account.sa_gke
   ]

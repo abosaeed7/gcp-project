@@ -1,7 +1,7 @@
 resource "google_compute_instance" "private_vm" {
   name         = "ssh-vm"
   machine_type = var.vm_type
-  zone         = "us-central1-a"
+  zone         = "${var.regoin}-a"
 
 
   boot_disk {
@@ -10,7 +10,7 @@ resource "google_compute_instance" "private_vm" {
     }
   }
   depends_on = [
-    google_service_account.sa_vm,
+    # google_service_account.sa_vm,
     google_compute_subnetwork.public_subnet
   ]
   network_interface {
@@ -20,7 +20,7 @@ resource "google_compute_instance" "private_vm" {
 
   service_account {
     # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
-    email  = "<compute_cloud_mail>"
+    email  = google_service_account.sa_vm.email
     scopes = ["cloud-platform"]
   }
 

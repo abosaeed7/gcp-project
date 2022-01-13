@@ -1,31 +1,39 @@
 variable "regoin" {
-  default = "us-central1"
+    type = string
 }
+
+variable "project_name" {
+    type = string
+}
+
 variable "network_name" {
     type = string
-    default = "gke-network"
 }
+
 
 variable "public_subnet_name" {
     type = string
-    default = "managment-subnet"
 }
 
 variable "private_subnet_name" {
     type = string
-    default = "restricted-subnet"
+    
 }
 
 variable "router_name" {
-    default = "router-gke"
+    type = string
 }
 
 variable "nat_cloud" {
     type = string
-    default = "nat-gke"
 }
 
 variable "vm_type" {
     type = string
-    default = "e2-small"
 }
+
+
+
+variable "service_account_vm" {
+    type = string
+}   

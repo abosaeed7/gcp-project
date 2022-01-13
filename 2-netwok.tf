@@ -53,8 +53,8 @@ resource "google_compute_router_nat" "nat" {
 # firewall
 
 resource "google_compute_firewall" "rules" {
-  project     = "abdelrahman-saeed"
-  name        = "allow1"
+  project     = var.project_name
+  name        = "allowtcprules"
   network     = var.network_name
   depends_on = [google_compute_network.vpc_network]
 
